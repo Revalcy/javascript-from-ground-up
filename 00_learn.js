@@ -44,7 +44,24 @@ const badges = [
   participants[0].country // 'UK'
 */
 
+// TODO TASK: Improve validateParticipant function so that it ensures that data only has id, name, country, and joinedAt fields. Nothing Additional!
+
 function validateParticipant(participant) {
+
+  const allowedFields = ["id", "name", "country", "joinedAt"];
+  const participantObjFields = Object.keys(participant); // ["id", "name"] // 2
+
+  let hasAllowedField = true;
+  for (let i = 0; i < participantObjFields.length; i++) {
+    const key = participantObjFields[i]; // "id"
+    if (allowedFields.includes(key)) {
+      hasAllowedField = true;
+    } else {
+      hasAllowedField = false;
+      break;
+    }
+  }
+
   const idCheck = typeof participant.id === "number";
   const nameCheck = typeof participant.name === "string";
   const countryCheck = typeof participant.country === "string";
@@ -52,12 +69,10 @@ function validateParticipant(participant) {
 
   const hasCrucialFields = participant.id !== undefined && participant.name !== undefined;
 
-  const isValid = idCheck && nameCheck && countryCheck && joinedAtCheck && hasCrucialFields;
+  const isValid = idCheck && nameCheck && countryCheck && joinedAtCheck && hasCrucialFields && hasAllowedField;
   return isValid;
 }
 
 console.log(validateParticipant(participants[0])); // true
 console.log(validateParticipant({ id: "1", name: "Test" })); // false
 console.log(validateParticipant({ id: 1, name: "Test", activeSince: "2026-01-10", country: "UK", joinedAt: "2024-01-15" })); // true (but has extra field of 'activeSince' which I don't want)
-
-// TODO TASK: Improve validateParticipant so that it ensures that data only has id, name, country, and joinedAt. Nothing Additional!
