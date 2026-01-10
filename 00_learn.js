@@ -9,8 +9,8 @@ const participants = [
 
 // EVENTS - What hackers can attend
 const events = [
-  { id: 101, title: "Intro to JavaScript", hostId: 1, date: "2024-02-01", capacity: 50 },
-  { id: 102, title: "Building APIs with Node", hostId: 2, date: "2024-02-02", capacity: 30 },
+  { id: 101, title: "intro to JavaScript", hostId: 1, date: "2024-02-01", capacity: 50 },
+  { id: 102, title: "building APIs with Node", hostId: 2, date: "2024-02-02", capacity: 30 },
   { id: 103, title: "React Fundamentals", hostId: 1, date: "2024-02-03", capacity: 40 },
   { id: 104, title: "TypeScript Deep Dive", hostId: 3, date: "2024-02-04", capacity: 25 }
 ];
@@ -76,3 +76,14 @@ function validateParticipant(participant) {
 console.log(validateParticipant(participants[0])); // true
 console.log(validateParticipant({ id: "1", name: "Test" })); // false
 console.log(validateParticipant({ id: 1, name: "Test", activeSince: "2026-01-10", country: "UK", joinedAt: "2024-01-15" })); // true (but has extra field of 'activeSince' which I don't want)
+
+function getTitles(events) {
+  const titles = [];
+  for (let i = 0; i < events.length; i++) {
+    console.log(events[i], typeof events[i] === "object" && !Array.isArray(events[i]));
+    titles.push(events[i].title);
+  }
+  return titles;
+}
+
+getTitles(events);
