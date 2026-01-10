@@ -1,0 +1,21 @@
+{
+  "name": "javascript-from-ground-up",
+  "version": "1.0.0",
+  "description": "This repository contains a comprehensive guide and resources for learning JavaScript from basics.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utk09-NCL/javascript-from-ground-up.git"
+  },
+  "keywords": [],
+  "author": "utk09-NCL",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/utk09-NCL/javascript-from-ground-up/issues"
+  },
+  "homepage": "https://github.com/utk09-NCL/javascript-from-ground-up#readme"
+}
