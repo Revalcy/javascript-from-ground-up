@@ -86,4 +86,21 @@ function getTitles(events) {
   return titles;
 }
 
+function getTitles(events) {
+  return events.map(eachEvent => eachEvent.title );
+}
+
 getTitles(events);
+
+function sendEmailConfirmation(registrations, participants) {
+  registrations.forEach(eachReg => {
+    console.log(eachReg.odId);
+    const particpant = participants.find(eachP => {
+      console.log(eachP.id);
+      return eachP.id === eachReg.odId;
+    });
+    console.log("Email sent to", particpant.name);
+  })
+}
+
+sendEmailConfirmation(registrations, participants);
